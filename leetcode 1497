@@ -1,0 +1,17 @@
+class Solution:
+    def canArrange(self, arr: List[int], k: int) -> bool:
+        remainder = [0 for i in  range(k)]
+        
+        for ele in arr:
+            remainder[ele%k] +=1
+            
+        #print(remainder)
+        
+        for i in range(k):
+            if i==0:
+                if remainder[i] %2 != 0:
+                    return False
+            elif remainder[i] != remainder[k-i]:
+                return False
+        return True
+        

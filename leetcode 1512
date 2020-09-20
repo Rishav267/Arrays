@@ -1,0 +1,16 @@
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:   
+        if nums == None:
+            return 0
+        dicti = {}
+        count =0
+        for i in nums:
+            if i in dicti:
+                dicti[i] += 1
+            else:
+                dicti[i] = 1
+                
+        for i in dicti:
+                count += sum(range(dicti[i]))
+        return count
+        

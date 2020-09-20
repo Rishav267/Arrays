@@ -1,0 +1,50 @@
+class Solution:
+    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
+        if nums == None:
+            return []  #assuming
+        
+        rows = len(nums)
+        cols = len(nums[0])
+        
+        if rows*cols != r*c: #if dimension doesn't match matrix can't be reshaped
+            return nums      #as per asked in question, example 2
+        
+        else:
+            #temp = [val for i in nums for val in i] #[1,2,3,4]
+            temp = []
+            
+            for x in nums:  #also other way to make list like [1,2,3,4] from matrix
+                temp +=x
+            #print(temp)
+            
+            output = [[0]*c for i in range(r)]
+            #print(output)
+            
+            for index, item in enumerate(temp):
+                newrow = index//c
+                newcol = index%c
+                output[newrow][newcol] = item
+        return output
+    #https://leetcode.com/problems/reshape-the-matrix/discuss/102572/Python-solution
+        '''
+        else:         #working solution  
+            ans = [[]]
+            
+            for i in range(rows):
+                for j in range(cols):
+                    num = nums[i][j]
+                    if len(ans[-1]) < c:
+                        ans[-1].append(num) #appending in columns for same row
+                        
+                    else:
+                        ans.append([]) #appending new rows
+                        ans[-1].append(num)
+                
+            return ans
+            '''
+    
+    
+    #output = [[None] * c for _ in xrange(r)]
+    #print(output)
+                    
+    

@@ -1,0 +1,20 @@
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        '''
+        #in dictionary dublicate/repeated number will miss out
+        # nums = [22,22] expected =2, output =1
+        dic = {}
+        count=0
+        for i in nums:
+            dic[i] = len(str(i))
+        for i in dic:
+            if dic[i]%2 ==0:
+                count+=1
+        return count
+        '''
+        #same logic but submitted
+        res =0
+        for i in nums:
+            if len(str(i)) %2 ==0:
+                res+=1
+        return (res)

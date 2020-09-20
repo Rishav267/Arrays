@@ -1,0 +1,22 @@
+class Solution:
+    def transpose(self, A: List[List[int]]) -> List[List[int]]:
+        if A == None:
+            return []  #assuming
+        
+        rows = len(A)
+        cols = len(A[0])
+        
+        #print(rows,cols)
+        #i = 0
+        #j = 0
+        output = []
+        
+        for i in range(cols):
+            temp = []
+            for j in range(rows):
+                temp.append(A[j][i])
+            
+            output.append(temp)
+            
+        return output
+        

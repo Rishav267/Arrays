@@ -1,0 +1,15 @@
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return 0
+        
+        arr = {}
+        length = len(nums)
+        count = [0]*length
+        
+        for i in nums:
+            count[i] += 1
+        for i in range(length):
+            if count[i]>=2:
+                return i
+        

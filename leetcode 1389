@@ -1,6 +1,8 @@
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
         '''
+        #working
+        
         length = len(nums)
         res = [-1]*length
         for i in range(length):
@@ -18,6 +20,7 @@ class Solution:
         #using zip and insert function
         '''
         
+        #working
         res=[]
         for i, v in zip(index,nums):
             res.insert(i,v)

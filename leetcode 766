@@ -1,0 +1,17 @@
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        if matrix == None:
+            return False
+        
+        rows = len(matrix)
+        cols = len(matrix[0])
+        
+        #print(cols,rows)
+        
+        for i in range(rows-1):
+            for j in range(cols-1):
+                if i < rows and j < cols:
+                    if matrix[i][j] != matrix[i+1][j+1]:
+                        return False
+        return True
+        

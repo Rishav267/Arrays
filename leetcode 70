@@ -1,0 +1,29 @@
+int fun(int n,int* temp)
+{
+    
+    
+    
+    if(n<=2)
+        return n;
+    
+    if(*(temp+n)!=0)
+        return *(temp+n);
+
+    *(temp+n)= fun(n-1,temp)+fun(n-2,temp);
+return *(temp+n);
+}
+//int temp[1000];
+int climbStairs(int n){
+    //works as fibonacci series but don't know why
+    int var;
+    int i;
+    int temp[n+1];
+    for(i=0;i<n+1;i++)
+    {
+        temp[i]=0;
+    }
+    var=fun(n,temp);
+    
+return var;
+}
+//after n=43 it's giving TLE

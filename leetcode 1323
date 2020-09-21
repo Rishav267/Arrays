@@ -1,0 +1,9 @@
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        num1=[i for i in str(num)]
+        for i in range(0,len(num1)):
+            if num1[i]=='6':
+                num1[i]='9'
+                break
+        return int("".join(num1))
+        

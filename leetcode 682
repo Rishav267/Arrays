@@ -1,0 +1,67 @@
+
+
+int calPoints(char ** ops, int opsSize){
+  
+    if(opsSize <= 0)
+    {
+        return 0;
+    }
+    
+    int sum = 0;
+    int var = 0;
+    int i = 0;
+    int stack[opsSize];
+    int top = -1;
+    int j;
+    
+    while(i<opsSize)
+    {
+        if((*(ops+i))[0] == 'D')
+        {
+            j = 2*stack[top];
+            stack[++top] = j;
+            i++;
+        }
+        else if ((*(ops+i))[0] == '+')
+        {
+           
+            int k = stack[top] + stack[top-1];
+            stack[++top] = k;
+            i++;
+           
+        }
+        else if ((*(ops+i))[0] == 'C')
+        {
+            top--;
+            i++;
+        }
+        else
+        {
+            var = 0;
+            int x = 0;
+            
+            (((*(ops+i))[0]) == '-') ? x++ : x;
+             
+            while(((*(ops+i))[x]))
+            {
+                var = (var*10) + ((*(ops+i))[x] - '0');
+                x++;
+            }
+            
+            (((*(ops+i))[0]) == '-') ? var = -var : var;
+            
+            stack[++top] = var;
+            i++;
+        }
+     }
+    
+    for(i=0;i<=top;i++)
+    {
+        sum = sum + stack[i];
+    }
+    
+return sum;
+}
+
+// time complexity = N (size of array)
+// space complexity = N (size of stack)

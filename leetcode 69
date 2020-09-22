@@ -1,0 +1,28 @@
+
+
+int mySqrt(int x){
+    int i;
+    long start=1;
+    long end= x;
+    long mid;
+    
+    while(start<=end)
+    {
+        mid = (start+end)/2;
+        if(pow(mid,2)==x)
+        {
+            return mid;
+        }
+        else if(pow(mid,2)>x)
+        {
+            end=mid-1;
+        }
+        else
+            start = mid+1;
+    }
+    if(pow(mid,2)>x)
+        return mid-1;
+
+    return mid;
+
+}
